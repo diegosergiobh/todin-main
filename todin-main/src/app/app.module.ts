@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './core/auth/components/login/login.component';
+import { TasksListComponent } from './modules/tasks/components/tasks-list/tasks-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TasksListComponent
   ],
   imports: [
     BrowserModule,
