@@ -64,8 +64,8 @@ app
 ├── app.component.css
 ├── app.component.html
 ├── app.component.ts
+└── app.module.ts
 
 ```
 
 
-└── app.module.ts
