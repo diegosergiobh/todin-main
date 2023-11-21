@@ -47,15 +47,14 @@ export class CreateTaskComponent implements OnInit {
             console.log(err);
           },
           complete: () => {
-            this.location.back()
+            this.location.back();
           }
         })
     }
   }
 
   onCancel() {
-    this.submitted = false;
-    this.form.reset();
+    this.location.back();
   }
 }
 {
