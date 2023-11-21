@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="float-end">
-      <button type="submit" class="btn btn-primary" (click)="onSave()">
+      <button type="submit" class="btn btn-primary" (click)="onSave()" [disabled]="form.invalid">
         Salvar
       </button>
       <button type="submit" class="btn btn-default" (click)="onCancel()">
