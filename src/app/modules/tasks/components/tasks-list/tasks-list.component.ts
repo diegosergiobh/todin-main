@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
 import { Task } from '../../models/task.model';
 import { Router } from '@angular/router';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-tasks-list',
@@ -27,4 +28,16 @@ export class TasksListComponent implements OnInit{
     this.router.navigate(['/tasks/editar', task.id]);
   }  
 
+  deteleTask(id: string){
+    this.tasksService.remove(id)
+      .pipe(first())
+      .subscribe({
+        error: (err) => {
+          console.log(err);
+        },
+        complete: () => {
+          this.listTasks();
+        }
+      })
+  }
 }
