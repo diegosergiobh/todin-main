@@ -31,7 +31,7 @@ export class TasksService {
     return this.http.put<void>(`${this.API}/${task.id}`, task);
   }
 
-  remove(id: number){
+  remove(id: string){
     return this.http.delete(`${this.API}/${id}`).pipe(first());
   }
 

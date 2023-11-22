@@ -1,3 +1,4 @@
+import { LoginService } from './../../../../core/auth/services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TasksService } from '../../services/tasks.service';
@@ -14,27 +15,29 @@ export class CreateTaskComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   private taskId?: string;
+  userId!: string;
 
   constructor(
     private taskService: TasksService,
     private location: Location,
     private route: ActivatedRoute,
+    private loginService: LoginService,
   ) {}
 
   ngOnInit(): void {
-
+    this.userId = this.loginService.getUserId();
     this.buildForm();
     this.getIdFromUrl();
   }
 
   private buildForm(): void{
     this.form = new FormGroup({
-      id: new FormControl(),
+      id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       category: new FormControl(null, [Validators.required]),
       done: new FormControl(false),
       deadline: new FormControl("2023-11-15T09:00:00.000"),
-      userId: new FormControl("54da4694-cd9e-44e9-8273-ad9a4f276788"),
+      userId: new FormControl(this.userId),
     });
   }
 
