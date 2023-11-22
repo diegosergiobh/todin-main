@@ -9,6 +9,7 @@ import { UserToken } from '../models/user-token.model';
 })
 export class LoginService {
   private apiBaseUrl = 'http://localhost:5000/auth/login';
+  private userId!: string;
 
   constructor(private http: HttpClient) {}
 
@@ -31,5 +32,9 @@ export class LoginService {
 
       subscriber.next(false);
     });
+  }
+
+  public getUserId(): string{
+    return this.userId;
   }
 }
