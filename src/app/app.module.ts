@@ -8,11 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/auth/components/login/login.component';
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
+import { HeaderComponent } from './shared/header/header.component';
+import { NavMenuComponent } from './shared/nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HeaderComponent,
+    NavMenuComponent,
   ],
   imports: [
     BrowserModule,

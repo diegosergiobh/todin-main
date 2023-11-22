@@ -1,0 +1,41 @@
+:host {
+    
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    /* display: grid;
+    
+    grid-template-columns: auto auto auto auto; */
+    height: 100%;
+
+    #task {
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        min-height: fit-content;
+        
+    
+        
+        padding: 10px 16px;
+        border-radius: 8px;
+        background: #FFF;
+        * {
+            color: #000;
+        }
+        #taskTitle{
+            overflow-wrap: break-word;
+        }
+        #taskContent {
+            overflow-wrap: break-word;
+            
+        }
+    }
+
+
+
+}

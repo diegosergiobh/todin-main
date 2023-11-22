@@ -29,14 +29,14 @@ export class CreateTaskComponent implements OnInit {
 
   private buildForm(): void{
     this.form = new FormGroup({
-      id: new FormControl(),
+      id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       category: new FormControl(null, [Validators.required]),
-      done: new FormControl(null),
+      done: new FormControl(false),
       deadline: new FormControl("2023-11-15T09:00:00.000"),
       userId: new FormControl("54da4694-cd9e-44e9-8273-ad9a4f276788"),
     });
-  }
+  } 
 
   public getIdFromUrl(){
     this.taskId = this.route.snapshot.params['id'];

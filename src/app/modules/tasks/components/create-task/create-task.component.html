@@ -1,5 +1,6 @@
 <form class="needs-validation pt-3" novalidate [formGroup]="form">
     <div class="col-sm-6">
+
       <div class="container">
         <label for="title" class="form-label">Título da atividade</label>
         <input
@@ -11,6 +12,7 @@
           [ngClass]="{ 'is-invalid': submitted }"
         />
       </div>
+
       <div class="container mt-3">
         <label for="category" class="form-label">Descrição da atividade</label>
         <textarea
@@ -21,7 +23,9 @@
         [ngClass]="{ 'is-invalid': submitted }"
         ></textarea>
       </div>
+
     </div>
+    
     <div class="float-end">
       <button type="submit" class="btn btn-primary" (click)="onSave()" [disabled]="form.invalid">
         Salvar

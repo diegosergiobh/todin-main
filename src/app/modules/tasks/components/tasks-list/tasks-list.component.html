@@ -1,15 +1,17 @@
-<div class="card mt-3" style="width: 18rem;" *ngFor="let task of tasks">
-  <div class="card-header fw-bold">
-    {{ task.title }}
+
+<div *ngFor="let task of tasks" id="task">
+
+  <h3 class="fw-bold m-0" id="taskTitle">{{ task.title }}</h3>
+  
+
+  <p class="m-0" id="taskContent">
+    {{ task.category }}
+  </p>
+  
+
+  <div>
+    <button type="button" class="btn btn-success me-1" (click)="editTask(task)">Edit</button>
+    <button type="button" class="btn btn-danger">Remove</button>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ task.category }}</li>
-  </ul>
-  <div class="card-footer">
-    <button type="button" class="btn btn-success" (click)="editTask(task)">Editar</button>
-    <button type="button" class="btn btn-danger">Remover</button>
-  </div>
-</div>
-<div class="float-end">
-  <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova Tarefa</button>
+ 
 </div>
