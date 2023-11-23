@@ -12,11 +12,15 @@ import { first } from 'rxjs';
 export class TasksListComponent implements OnInit{
 
   tasks: Task[] = [];
+  currentDate: string = '';
+  userName!: string | null;
 
   constructor(private tasksService: TasksService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userName = localStorage.getItem('USER_NAME');
     this.listTasks();
+    this.updateDateTime();
   }
 
   listTasks(){
@@ -39,5 +43,10 @@ export class TasksListComponent implements OnInit{
           this.listTasks();
         }
       })
+  }
+
+  updateDateTime(){
+    const now = new Date();
+    this.currentDate = now.toLocaleDateString();
   }
 }
