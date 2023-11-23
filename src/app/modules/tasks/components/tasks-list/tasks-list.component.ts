@@ -25,7 +25,7 @@ export class TasksListComponent implements OnInit{
 
   listTasks(){
     this.tasksService.list()
-      .subscribe(dados => this.tasks = dados);
+      .subscribe(dados => this.tasks = dados); 
   }
 
   editTask(task: Task) {
