@@ -2,6 +2,10 @@
   <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova Tarefa</button>
 </div>
 
+<!-- <div>
+  <h2>{{ currentDate }}</h2>
+</div> -->
+
 <div *ngFor="let task of tasks" id="task">
   <div class="TaskInfo d-flex flex-column justify-content-between">
     <div class="taskDetails d-flex justify-content-between align-items-center">
