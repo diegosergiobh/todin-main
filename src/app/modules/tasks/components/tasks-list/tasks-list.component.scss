@@ -1,45 +1,50 @@
 :host {
     
-    /* display: flex;
-    justify-content: center;
+    display: flex;
+    justify-content: start;
     align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 1rem; */
+    overflow-x: scroll;
+    gap: 1rem; 
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 10px;
-    padding: 10px;
+    /* display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 16px;
+    padding: 10px; */
     
-    height: 100%;
-
+    
+    padding: 2rem;
     #task {
+        min-width: 280px; 
+        max-width: 280px;
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
+        gap: 8px;
         min-height: fit-content;
         padding: 10px 16px;
         border-radius: 8px;
-        background: #FBF5F5;
-        height: 200px; 
+        background: var(--secondary);
+        height: auto; 
         transition: 0.3s ease; 
-        overflow: hidden;
+        /* overflow: hidden; */
         &:hover {
-            height: auto; /* expand the card to full height on hover */
-            transition: 0.3s ease; 
-            transform: scale(0.9);
+             /* expand the card to full height on hover */
+            transition: 0.3s transform ease; 
+            transform: translateY(-4px);
+            outline: 2px solid #fff;
             box-shadow: 0 0 16px 6px rgba(0, 0, 0, 0.39);
         }
 
+        
         * {
-            color: #000;
+            color: var(--text);
         }
         #taskTitle{
             font-size: 26px;
             overflow-wrap: break-word;
-            text-overflow: ellipsis; // show an ellipsis when the title is too long
-            white-space: nowrap; // prevent the title from wrapping to the next line
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
             overflow: hidden;
         }
         #taskContent {
@@ -49,7 +54,10 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             max-height: 96px;
-            /* text-overflow: ellipsis; */
+            
+        }
+        #taskCheckbox{
+            font-size: 30px;
         }
     }
 
@@ -60,8 +68,8 @@
 .NewTask{
     position: absolute;
     
-    top: 10px;
-    right: 26px;
+    top: 25px;
+    right: 56px;
     margin: 0 auto;
 
     & button{

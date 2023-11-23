@@ -1,12 +1,21 @@
 
-html {
-    height: 100vh;
-
+*{
+    box-sizing: border-box;
+    color-scheme: dark;
+}
+:root{
+--text: #e9e7e7;
+--background: #111111;
+--primary: #ddab78;
+--secondary: #232323; 
+--accent: #b75252;
 }
 
+html {height: 100vh;}
+ 
 body {
     height: 100%;
-    background-color: #121212 !important;  
+    background-color: var(--background) !important;  
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -22,7 +31,7 @@ body {
 
 *{
     &::-webkit-scrollbar {
-        width: 9px;
+        width: 4px;
     }
     &::-webkit-scrollbar-track {
         background: transparent;
@@ -46,3 +55,4 @@ body {
 
 
 @import 'bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
