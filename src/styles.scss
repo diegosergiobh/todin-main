@@ -1,8 +1,12 @@
-
-*{
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     color-scheme: dark;
+
+    /* outline: solid 1px red; */
 }
+
 :root{
 --text: #e9e7e7;
 --background: #111111;
@@ -10,8 +14,9 @@
 --secondary: #232323; 
 --accent: #b75252;
 }
-
-html {height: 100vh;}
+html{
+    height: 100%;
+}
  
 body {
     height: 100%;
@@ -31,13 +36,14 @@ body {
 
 *{
     &::-webkit-scrollbar {
-        width: 4px;
+        height: 8px !important;
+        width: 8px !important;
     }
-    &::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track { 
         background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.768);
+        background-color: rgba(255, 255, 255, 0.668);
         border-radius: 20px;
         border: transparent;
     }	
