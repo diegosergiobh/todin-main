@@ -1,0 +1,72 @@
+:host {
+    
+    /* display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    padding: 10px;
+    
+    height: 100%;
+
+    #task {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        min-height: fit-content;
+        padding: 10px 16px;
+        border-radius: 8px;
+        background: #FBF5F5;
+        height: 200px; 
+        transition: 0.3s ease; 
+        overflow: hidden;
+        &:hover {
+            height: auto; /* expand the card to full height on hover */
+            transition: 0.3s ease; 
+            transform: scale(0.9);
+            box-shadow: 0 0 16px 6px rgba(0, 0, 0, 0.39);
+        }
+
+        * {
+            color: #000;
+        }
+        #taskTitle{
+            font-size: 26px;
+            overflow-wrap: break-word;
+            text-overflow: ellipsis; // show an ellipsis when the title is too long
+            white-space: nowrap; // prevent the title from wrapping to the next line
+            overflow: hidden;
+        }
+        #taskContent {
+            font-size: 16px;
+            overflow-wrap: break-word; 
+            overflow: hidden; 
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            max-height: 96px;
+            /* text-overflow: ellipsis; */
+        }
+    }
+
+
+
+}
+
+.NewTask{
+    position: absolute;
+    
+    top: 10px;
+    right: 26px;
+    margin: 0 auto;
+
+    & button{
+        background-color: #FF3D3D !important;
+        border: #ff5b5b !important;
+        font-weight: bold;
+    }
+}

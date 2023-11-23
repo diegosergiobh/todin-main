@@ -1,4 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Importing Bootstrap SCSS file. */
+html {
+    height: 100vh;
+
+}
+
+body {
+    height: 100%;
+    background-color: #121212 !important;  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    * {
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 500;
+        color: #fff;
+    }
+
+}
+
+*{
+    &::-webkit-scrollbar {
+        width: 9px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.768);
+        border-radius: 20px;
+        border: transparent;
+    }	
+}
+
+
+.T-Button {
+    padding: 8px 18px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 7px;
+    background: #F67701;
+}
+
+
 @import 'bootstrap/scss/bootstrap';
