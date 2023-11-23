@@ -13,10 +13,12 @@ export class TasksListComponent implements OnInit{
 
   tasks: Task[] = [];
   currentDate: string = '';
+  userName!: string | null;
 
   constructor(private tasksService: TasksService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userName = localStorage.getItem('USER_NAME');
     this.listTasks();
     this.updateDateTime();
   }
