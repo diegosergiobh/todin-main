@@ -36,7 +36,7 @@ export class CreateTaskComponent implements OnInit {
       title: new FormControl(null, [Validators.required]),
       category: new FormControl(null, [Validators.required]),
       done: new FormControl(false),
-      deadline: new FormControl("2023-11-15T09:00:00.000"),
+      deadline: new FormControl(null, [Validators.required]),
       userId: new FormControl(this.userId),
     });
   }
