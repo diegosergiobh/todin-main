@@ -1,0 +1,26 @@
+input[type="email"], input[type="password"] {
+    max-width: 18.75rem; 
+}
+
+.btn-no-underline {
+    text-decoration: none;
+}
+
+.form-control + .text-danger {
+  margin-top: 0.375rem;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 70%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn-toggle-password i {
+  color: #6c757d;
+}

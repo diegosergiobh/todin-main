@@ -1,32 +1,58 @@
-<form class="needs-validation pt-3" novalidate [formGroup]="loginForm">
-    <div class="col-sm-6">
-      <div class="container d-flex gap-2">
-        <label for="email" class="form-label">Email: </label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Email"
-          formControlName="email"
-          [ngClass]="{ 'is-invalid': submitted }"
-        />
+<div class="container">
+  <form class="needs-validation pt-3" novalidate [formGroup]="loginForm" (keydown.enter)="login()">
+    <div class="row justify-content-center">
+      <div class="col-sm-6 col-md-3">
+        
+        <div class="mb-3">
+          <label for="email" class="form-label fw-bold">Email: </label>
+          <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+          <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors" class="text-danger mt-1">
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">Este campo é obrigatório.</div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">Você deve digitar um e-mail válido.</div>
+          </div>
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label for="password" class="form-label fw-bold">Senha: </label>
+          <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" placeholder="Senha" formControlName="password" [ngClass]="{'is-invalid': submitted}" />
+          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors" class="text-danger mt-1">
+            <div *ngIf="loginForm.get('password')?.errors?.['required']">Este campo é obrigatório.</div>
+            <div *ngIf="loginForm.get('password')?.errors?.['minlength']">A senha deve ter no mínimo 3 caracteres.</div>
+          </div>
+          <button type="button" class="btn-toggle-password" (click)="togglePasswordVisibility()">
+            <i [class]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
+          </button>
+        </div>
+        
+        <div class="mb-3 d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary btn-lg" (click)="login()">Entrar</button>
+        </div>
+        
+        <div class="mb-3 text-center">
+          <button class="btn btn-link btn-no-underline" (click)="openModal()">Esqueceu a sua senha? Clique aqui.</button>
+        </div>
+
       </div>
-      <div class="container d-flex gap-1 mt-2">
-        <label for="password" class="form-label">Senha: </label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="Senha"
-          formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted }"
-        />
-      </div>
-    </div>
-    <div class="float-end">
-      <button type="submit" class="btn btn-primary" (click)="login()">
-        Entrar
-      </button>
     </div>
   </form>
-  
+</div>
+
+<ng-template #forgotPasswordModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-title">Recuperação de Senha</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal(modal)"></button>
+  </div>
+  <div class="modal-body d-flex flex-column justify-content-center align-items-center" (keydown.enter)="sendEmail(modal)">
+    <input type="email" class="form-control" [(ngModel)]="email" placeholder="Digite seu email" [class.is-invalid]="invalidEmail">
+    <div *ngIf="invalidEmail" class="text-danger mt-1">
+      Você deve digitar um e-mail válido.
+    </div>
+    <div *ngIf="showSuccessMessage" class="text-success mt-1">
+      E-mail enviado com sucesso!
+    </div>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary" (click)="closeModal(modal)">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="sendEmail(modal)">Enviar</button>
+  </div>
+</ng-template>

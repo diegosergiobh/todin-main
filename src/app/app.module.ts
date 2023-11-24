@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/auth/components/login/login.component';
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RequestInterceptor } from './core/interceptors/request.interceptor';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
