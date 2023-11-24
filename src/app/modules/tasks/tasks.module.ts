@@ -5,11 +5,13 @@ import { TasksRoutingModule } from './tasks-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TasksListComponent } from './components/tasks-list/tasks-list.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
+import { CustomDatePipe } from './pipes/custom-date.pipe';
 
 @NgModule({
   declarations: [
     TasksListComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    CustomDatePipe
   ],
   imports: [
     CommonModule,

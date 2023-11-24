@@ -23,7 +23,7 @@
     </div>
     <div id="taskBottom" class="d-flex justify-content-between">
 
-       <span class="fw-light" id="taskDeadline">{{ task.deadline  }}</span> 
+       <span class="fw-light" id="taskDeadline">{{ task.deadline | customDate }}</span> 
 
       <div class="d-flex justify-content-end" id="taskButtonWrap">
         <button type="button" class="btn me-1" (click)="editTask(task)"><i
