@@ -30,18 +30,6 @@ export class LoginService {
     return token ? of(true) : of(false);
   }
 
-  public checkUserRoles(roles: string[]): Observable<boolean> {
-    return new Observable<boolean>((subscriber) => {
-      const userRoles = JSON.parse(localStorage.getItem('USER_ROLES') || '[]');
-
-      if (userRoles.some((role: string) => roles.includes(role))) {
-        subscriber.next(true);
-      }
-
-      subscriber.next(false);
-    });
-  }
-
   public getUserId(): string{
     return this.userId;
   }
