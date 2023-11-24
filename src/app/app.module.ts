@@ -9,11 +9,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './core/auth/components/login/login.component';
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,39 @@
-<div class="card mt-3" style="width: 18rem;" *ngFor="let task of tasks">
-  <div class="card-header fw-bold">
-    {{ task.title }}
+<!-- <div>
+  <h2>{{ currentDate }}</h2>
+</div> -->
+
+<div class=" d-flex justify-content-between align-items-start pb-2" id="taskLabel">
+  <h3 class="fw-bold">Welcome back, {{ userName }}</h3>
+  <div class="NewTask">
+    <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova Tarefa</button>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ task.category }}</li>
-  </ul>
-  <div class="card-footer">
-    <button type="button" class="btn btn-success" (click)="editTask(task)">Editar</button>
-    <button type="button" class="btn btn-danger">Remover</button>
+</div>
+
+
+<div id="taskContainer"> 
+  <div *ngFor="let task of tasks" id="task">
+    <div class="TaskInfo d-flex flex-column justify-content-between">
+      <div class="taskDetails d-flex justify-content-between align-items-center">
+        <h3 class="fw-bold m-0" id="taskTitle">{{ task.title }}</h3>
+        <i class="bi bi-check-square" id="taskCheckbox"></i>
+      </div>
+      <p class="m-0" id="taskContent">
+        {{ task.category }}
+      </p>
+    </div>
+    <div id="taskBottom" class="d-flex justify-content-between">
+
+       <span class="fw-light" id="taskDeadline">{{ task.deadline  }}</span> 
+
+      <div class="d-flex justify-content-end" id="taskButtonWrap">
+        <button type="button" class="btn me-1" (click)="editTask(task)"><i
+            class="bi bi-pencil-square"></i></button>
+        <button type="button" class="btn" (click)="deteleTask(task.id!)"><i
+            class="bi bi-trash-fill"></i></button>
+      </div>
+    </div>
+
+
   </div>
+
 </div>

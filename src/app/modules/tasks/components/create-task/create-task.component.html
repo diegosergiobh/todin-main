@@ -1,34 +1,30 @@
-<form class="needs-validation pt-3" novalidate [formGroup]="form">
-    <div class="col-sm-6">
-      <div class="container">
-        <label for="title" class="form-label">Título da atividade</label>
-        <input
-          type="text"
-          class="form-control"
-          id="title"
-          placeholder="Título da atividade"
-          formControlName="title"
-          [ngClass]="{ 'is-invalid': submitted }"
-        />
-      </div>
-      <div class="container mt-3">
-        <label for="category" class="form-label">Descrição da atividade</label>
-        <textarea
-        class="form-control"
-        placeholder="Descreva a atividade"
-        formControlName="category"
-        id="category"
-        [ngClass]="{ 'is-invalid': submitted }"
-        ></textarea>
-      </div>
+<form class="needs-validation p-3 d-flex gap-4 flex-column align-items-center" novalidate [formGroup]="form">
+  <div>
+    <div>
+      <label for="title" class="form-label">Título da atividade</label>
+      <input type="text" class="form-control" id="title" placeholder="Título da atividade" formControlName="title"
+        [ngClass]="{ 'is-invalid': submitted }" />
     </div>
-    <div class="float-end">
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-        Salvar
-      </button>
-      <button type="submit" class="btn btn-default" (click)="onCancel()">
-        Cancelar
-      </button>
+    <div>
+      <label for="category" class="form-label">Descrição da atividade</label>
+      <textarea class="form-control" placeholder="Descreva a atividade" formControlName="category" id="category"
+        [ngClass]="{ 'is-invalid': submitted }"></textarea>
     </div>
-  </form>
-  
+    <div class="d-flex flex-column">
+      <label for="title" class="form-label">Título da atividade</label>
+      <input type="date" name="" id="date" class="text-col-black">
+    </div>
+  </div>
+
+
+
+
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-secondary me-1" (click)="onCancel()" [routerLink]="['/tasks']">
+      Cancelar
+    </button>
+    <button type="submit" class="btn btn-primary" (click)="onSave()" [disabled]="form.invalid">
+      Salvar
+    </button>
+  </div>
+</form>

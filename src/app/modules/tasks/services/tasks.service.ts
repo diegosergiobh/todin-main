@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first } from 'rxjs';
+import { Observable, first } from 'rxjs';
 import { Task } from '../models/task.model';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class TasksService {
 
   constructor(private http: HttpClient) { }
 
+  getById(id: string): Observable<Task> {
+    return this.http.get<Task>(`${this.API}/${id}`);
+  }
+
   list(){
     return this.http.get<Task[]>(this.API);
   }
@@ -23,11 +27,11 @@ export class TasksService {
     return this.http.post(this.API, task).pipe(first());
   }
 
-  update(task: Task){
-    return this.http.put(`${this.API}/${task.id}`, task).pipe(first());
+  update(task: Task): Observable<void>{
+    return this.http.put<void>(`${this.API}/${task.id}`, task);
   }
 
-  remove(id: number){
+  remove(id: string){
     return this.http.delete(`${this.API}/${id}`).pipe(first());
   }
 
