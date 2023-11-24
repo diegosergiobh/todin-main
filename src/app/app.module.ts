@@ -11,6 +11,7 @@ import { RequestInterceptor } from './core/interceptors/request.interceptor';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { PageNotFoundComponent } from './modules/components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
