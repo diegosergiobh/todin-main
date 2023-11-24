@@ -1,11 +1,14 @@
 <div class="container">
   <form class="needs-validation pt-3" novalidate [formGroup]="loginForm" (keydown.enter)="login()">
     <div class="row justify-content-center">
-      <div class="col-sm-6 col-md-3">
+      <div class="col-sm-8 col-md-5 col-lg-4">
         
         <div class="mb-3">
           <label for="email" class="form-label fw-bold">Email: </label>
-          <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-envelope"></i></span>
+          <input type="email" class="form-control" id="email" placeholder="Seu e-mail" formControlName="email">
+        </div>
           <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors" class="text-danger mt-1">
             <div *ngIf="loginForm.get('email')?.errors?.['required']">Este campo é obrigatório.</div>
             <div *ngIf="loginForm.get('email')?.errors?.['email']">Você deve digitar um e-mail válido.</div>
@@ -14,14 +17,14 @@
 
         <div class="mb-3 position-relative">
           <label for="password" class="form-label fw-bold">Senha: </label>
-          <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" placeholder="Senha" formControlName="password" [ngClass]="{'is-invalid': submitted}" />
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i [class]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'" (click)="togglePasswordVisibility()"></i></span>
+          <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" placeholder="Sua senha" formControlName="password" [ngClass]="{'is-invalid': submitted}" />
+        </div>
           <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors" class="text-danger mt-1">
             <div *ngIf="loginForm.get('password')?.errors?.['required']">Este campo é obrigatório.</div>
             <div *ngIf="loginForm.get('password')?.errors?.['minlength']">A senha deve ter no mínimo 3 caracteres.</div>
           </div>
-          <button type="button" class="btn-toggle-password" (click)="togglePasswordVisibility()">
-            <i [class]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
-          </button>
         </div>
         
         <div class="mb-3 d-flex justify-content-center">
